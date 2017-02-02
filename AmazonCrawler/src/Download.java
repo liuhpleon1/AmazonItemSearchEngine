@@ -7,7 +7,8 @@ public class Download {
     private String url;
     private String filename;
     public Download(String url,String filename){
-    	this.url = url;    }
+    	this.url = url;    
+    }
     public void core(){
     	if(filename.length()>0){
     	try{
