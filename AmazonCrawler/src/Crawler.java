@@ -34,7 +34,7 @@ public class Crawler {
 		String firstnum = "";
 		for(int i= s.length()-1;i>=0;i--){
 			if(s.charAt(i)<'0'||s.charAt(i)>'9') break;
-			else firstnum = firstnum+s.charAt(i); 
+			else firstnum = s.charAt(i)+firstnum; 
 		}
 		int start = Integer.parseInt(firstnum);
 		int i = start;
@@ -53,27 +53,85 @@ public class Crawler {
     			System.out.println("read complete");
     			break;
 			}
-    		Element content = item.select("div > div > div > div.a-fixed-left-grid-col.a-col-right > div.a-row.a-spacing-small > div:nth-child(1) > a").get(0);		
-    		String name = content.attr("title");
-    		String link = content.attr("href");
     		String asin = item.attr("data-asin");
-      		//e2 contains img src
-    		Element e2 = item.select("div > div > div > div.a-fixed-left-grid-col.a-col-left > div > div > a > img").get(0);
-    		String piclink = e2.attr("src");
-    		Info info = new Info(name, link, asin, piclink);
-    		seeds.add(info);
+    		Element e1 = null;
+    		try{
+    		    e1 = item.select("div > div > div > div.a-fixed-left-grid-col.a-col-right > div.a-row.a-spacing-small > div:nth-child(1) > a").get(0);	
+    		}catch(Exception e){
+    			
+    		}
+    		
+    		String name = e1==null?null:e1.attr("title");
+    		String link = e1==null?null:e1.attr("href");
+    		
+    		Element e2 = null;
+    		try{
+    		    e2 = item.select("div > div > div > div.a-fixed-left-grid-col.a-col-left > div > div > a > img").get(0);
+    		    
+    		}catch(Exception e){
+    			
+    		}
+    		String piclink = e2==null?null:e2.attr("src");
+    		   		
+    		Element e3 = null;
+    		String price = null;
+    		try{
+    	        e3 = item.select("div > div > div > div.a-fixed-left-grid-col.a-col-right > div:nth-child(3) > div.a-column.a-span7 > div.a-row.a-spacing-none > a > span").get(0);
+    	        price = e3.text();
+    		}catch (Exception e) {
+    			try{
+                    e3 = item.select("div > div > div > div.a-fixed-left-grid-col.a-col-right > div:nth-child(3) > div.a-column.a-span7 > div > div > a > span.a-size-base.a-color-base").get(0);
+                    price = e3.text();
+    			}catch (Exception error1) {
+					try{
+						e3 = item.select("div > div > div > div.a-fixed-left-grid-col.a-col-right > div:nth-child(5) > div.a-column.a-span7 > div.a-row.a-spacing-none > a > span").get(0);
+						price = e3.text();
+					}catch (Exception error2) {
+						
+					}
+				}
+			}
+    		
+    	    boolean availability = price==null?false:true;
+    	    
+    	    Element e4 = null;
+    	    try{
+    	        e4 = item.select("div > div > div > div.a-fixed-left-grid-col.a-col-right > div:nth-child(3) > div.a-column.a-span7 > div.a-row.a-spacing-none > i").get(0);
+    	    }catch (Exception e) {
+				// TODO: handle exception
+			}
+    		boolean isPrime = e4==null?false:true;
+    		
+    		if(e1!=null&&e2!=null&e3!=null&&e4!=null){
+    			Info info = new Info(name, link, asin, piclink, price, availability, isPrime);
+    		    seeds.add(info);
+    		}
+    		
+    		System.out.println(i);
+    		System.out.println(name);
+    		System.out.println(link);
+    		System.out.println(piclink);
+    		System.out.println(price);
+    		System.out.println(availability);
+    		System.out.println(isPrime);
+    		System.out.println(asin);
+    		System.out.println("___________________________");
+    		
     		try{
     		    Thread.sleep(200);
     		}catch(Exception e){
     			System.out.println("sleep 1 error");
     		}
-    		System.out.println(i+"."+name+" "+asin);
     		i++;
     	}
     	return seeds;
     }
+	
+	public static void main(String args[]){
+		Crawler crawler = new Crawler("https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dcomputers&field-keywords=desktop&rh=n%3A541966%2Ck%3Adesktop1");
+	    crawler.getPage();  
+	}
    
 }
-// we use the class info to collect and restore the data that we use a single thread to download;
 
 

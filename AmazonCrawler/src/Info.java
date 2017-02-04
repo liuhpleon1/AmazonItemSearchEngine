@@ -1,33 +1,21 @@
 public class Info {
-	String name;
-	String link;
-	String asin;
-	String piclink;
-	String price;
-	String availability;
-	/*basic construction method*/
-	public Info(String name,String link,String asin,String piclink){
-		this.name = name;
-		this.link = link;
-		this.asin = asin;
-		this.piclink = piclink;
-	}
-	/*construction with price*/
-	public Info(String name,String link,String asin,String piclink,String price){
-		this.name = name;
-		this.link = link;
-		this.asin = asin;
-		this.piclink = piclink;
-		this.price = price;
-	}
-	/*construction with availability*/
-	public Info(String name,String link,String asin,String piclink,String price,String availability){
+	private String name;
+	private String link;
+	private String asin;
+	private String piclink;
+	private String price;
+	private boolean availability;
+	private boolean isPrime;
+	private String type;
+	private String introduction;
+	public Info(String name,String link,String asin,String piclink,String price,boolean availability,boolean isPrime){
 		this.name = name;
 		this.link = link;
 		this.asin = asin;
 		this.piclink = piclink;
 		this.price = price;
 		this.availability = availability;
+		this.isPrime = isPrime;
 	}
 	public String name(){
 		return name;
@@ -38,7 +26,22 @@ public class Info {
 	public String asin(){
 		return asin;
 	}
-	public String piclink(){
+	public String picture(){
 		return piclink;
+	}
+	public boolean available(){
+		return availability;
+	}
+	public boolean prime(){
+		return isPrime;
+	}
+	public String price(){
+		return price;
+	}
+	public void addIntro(String a){
+		introduction = a;
+	}
+	public String intro(){
+		return introduction;
 	}
 }
