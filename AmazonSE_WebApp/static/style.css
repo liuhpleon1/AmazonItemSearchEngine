@@ -1,0 +1,19 @@
+
+body{
+	background: gray
+}
+.summery{
+	background: blue
+}
+.education{
+    background: red
+}
+.experience{
+    background: brown
+}
+.skills{
+    background: yellow
+}
+.project{
+    background: white
+}
