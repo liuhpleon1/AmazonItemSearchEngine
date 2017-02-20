@@ -5,7 +5,7 @@ engine = create_engine('sqlite:///user.db')
 base.metadata.bind = engine
 DBsession = sessionmaker(bind = engine)
 session = DBsession()
-def register(input_name,input_password,input_email,input_phone,input_level):
+def register_user(input_name,input_password,input_email,input_phone,input_level):
     try:
         check = session.query(User).filter_by(name=input_name).one()
     except:
@@ -15,4 +15,4 @@ def register(input_name,input_password,input_email,input_phone,input_level):
         return True
     return False
 
-register('haopeng','19921005','liupleon@gmail.com','9796767182',4)
+register_user('liuhpleon@gmail.com','19921005','liupleon@gmail.com','9796767182',4)

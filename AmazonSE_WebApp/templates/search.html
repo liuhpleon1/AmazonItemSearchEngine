@@ -3,15 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<img class="img_search" src="http://brandview.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/amazon_logo.png">
-	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.css')}}">
 </head>
 <body>
-	<div>
+	<div id='search_box h1'>
 		<input type="text" name="content" class = "input" id="search_text" >
 		<input type="submit" name="search" class = "button_search" id = "search_submit" value="Search">
 	</div>
-	<div>
+	<div class = 'all_content content_cache' id='cache_show'>
+	   <span></span>
 	</div>
-	<div></div>
+	<span class='all_content content_choice'></span>
+	<form class = 'content_search all_content'>
+	</form>
+	<br>
+	<div id='next' class='all_content content_cache'>
+	    <div type='submit' id='pre' name='Next' class='button_seach button_next' value="Next"></div>
+		<div type='submit' id='next' name='Next' class='button_seach button_next' value="Next"></div>
+	</div>	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='search.js')}}"></script>
 </body>
 </html>
