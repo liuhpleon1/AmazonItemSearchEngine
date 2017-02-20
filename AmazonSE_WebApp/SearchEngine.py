@@ -12,33 +12,36 @@ session = DBsession()
 app = Flask(__name__)
 
 @app.route('/',methods = ['GET','POST'])
-def login():
+def login_SE():
     if request.method=='POST':
         data = request.form
         username = data.get('username').__str__()
         password = data.get('password').__str__()
-        result = False
-        search = DBsearch(username,password)
-        if search.search_user():
-            result = True;
+        search_user = DBsearch(username,password)
+        result = search_user.search_user()
+        login_info = {'username':result[0],'password':result[1]}
         print result
-        return jsonify({"check":True})
+        print login_info
+        return jsonify(login_info)
     else:
-        return render_template('login.html')
-    
+        return render_template("login.html")
+
 @app.route('/signup/',methods = ['GET','POST'])
-def signup():
+def signup_SE():
     return render_template("signup.html")
     
     
 @app.route('/forget/',methods = ['GET','POST'])
-def forget():
+def forget_SE():
     return render_template('forget.html')
 
 
 @app.route('/search/',methods = ['GET','POST'])
-def search():
-    return render_template('search.html')
+def search_SE():
+    if request=='POST':
+        print "good"
+    else:
+        return render_template('search.html')
 
 
 

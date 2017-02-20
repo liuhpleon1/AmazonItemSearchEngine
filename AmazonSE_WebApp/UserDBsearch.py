@@ -16,10 +16,10 @@ class DBsearch:
             user = session.query(User).filter_by(name = self.input_name).one()
             print user
         except:
-            return False
+            return [False,False]
         if user == "": 
-            return False
+            return [False,False]
         elif user.password!=self.input_password:
-            return False
+            return [True,False]
         else:
-            return True
+            return [True,True]
