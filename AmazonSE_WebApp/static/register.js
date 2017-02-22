@@ -3,7 +3,7 @@ var password = $("#password").val();
 var confirm = $("#confirm").val();
 var cellphone = $("#cellphone").val();
 var email = $("#email").val();
-var myurl =""
+var myurl ="http://localhost:5000/signup/"
 var loginurl = "http://localhost:5000/";
 /*check if the password==confrim*/
 function judge(pw,cpw){
@@ -25,6 +25,10 @@ function page_check(){
 		console.log("your information is not complete");
 		return null;
 	}
+	else if(password!=confirm){
+		console.log('please input same password');
+		return null;
+	}
 	else{
 		var new_user={
 			"username":username,
@@ -37,26 +41,31 @@ function page_check(){
 }
 /*clean all the input*/
 function clean(){
-	username="";
-	password="";
-	confirm="";
-	cellphone="";
-	email="";
+	$("#username").val("");
+	$("#password").val("");
+	$("#confirm").val("");
+	$("#cellphone").val("");
+	$("#email").val("");
 }
 
 /*check if successfully regiestered*/
 function signup_check(has_username,has_email,has_cellphone){
-    if(has_username==false){
-
+    if(has_username==true){
+        console.log("username exist")
+        clean()
     }
-    else if(has_email==false){
-
+    else if(has_email==true){
+        console.log("email exist")
+        clean()
     }
-    else if(has_cellphone==false){
-
+    else if(has_cellphone==true){
+        console.log("cellphone exist")
+        clean()
     }
     else{
-    	console.log("regiestered good")
+    	console.log("successfully")
+    	clean()
+    	window.location.assign(loginurl);
     }
 }
 
@@ -69,7 +78,8 @@ function register(new_user){
 		data: new_user,
 	})
 	.done(function(result) {
-		console.log("success");
+		console.log(result)
+		signup_check(result.username,result.email,result.cellphone)
 	})
 	.fail(function() {
 		console.log("error");
@@ -91,7 +101,7 @@ $("#submit").click(function(event) {
 	else{
 		console.log("vaild input");
 		console.log(new_user);
-        //register(new_user)
+        register(new_user)
 	}
 });
 

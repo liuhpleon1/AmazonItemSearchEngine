@@ -9,9 +9,8 @@ class User(base):
     __tablename__ = 'user'
     name = Column(String(20),nullable = False,primary_key=True)
     password = Column(String(20),nullable = False)
-    email = Column(String(30),nullable = True)
-    phone = Column(String(30),nullable = True)
-    level = Column(Integer,nullable = False)
+    email = Column(String(30),nullable = False)
+    phone = Column(String(30),nullable = False)
 
 engine = create_engine('sqlite:///user.db')
 base.metadata.create_all(engine)

@@ -3,6 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from UserDBsetup import User,base
+from UserDBregister import DBregister
 from UserDBsearch import DBsearch
 engine = create_engine('sqlite:///user.db')
 base.metadata.bind = engine
@@ -28,7 +29,18 @@ def login_SE():
 
 @app.route('/signup/',methods = ['GET','POST'])
 def signup_SE():
-    return render_template("signup.html")
+    if request.method =='POST':
+        data = request.form
+        print data
+        username = data.get('username').__str__()
+        password = data.get('password').__str__()
+        email = data.get('email').__str__()
+        cellphone = data.get('cellphone').__str__()
+        register = DBregister(username,password,email,cellphone)
+        check = register.register_user()
+        return jsonify({"username":check[0],'email':check[1],'cellphone':check[2]})
+    else:
+        return render_template("signup.html")
     
     
 @app.route('/forget/',methods = ['GET','POST'])

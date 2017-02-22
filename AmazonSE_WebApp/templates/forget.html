@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
 	<title>Forget</title>
 </head>
 <body>
@@ -19,5 +20,7 @@
 		<input type="text" id="cellphone">
 	</div>
 	<input type="submit" id ="userinfo_submit" placeholder="submituserinfo">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{{url_for('static',filename='forget.js')}}"></script>
 </body>
 </html>
