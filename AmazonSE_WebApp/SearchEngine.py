@@ -5,12 +5,17 @@ from sqlalchemy.orm import sessionmaker
 from UserDBsetup import User,base
 from UserDBregister import DBregister
 from UserDBsearch import DBsearch
+from CacheDBsetup import Cache
+from CacheDBupdate import Update
+
 engine = create_engine('sqlite:///user.db')
 base.metadata.bind = engine
 DBsession = sessionmaker(bind = engine)
 session = DBsession()
 
 app = Flask(__name__)
+
+if_login_username=''
 
 @app.route('/',methods = ['GET','POST'])
 def login_SE():
@@ -19,8 +24,9 @@ def login_SE():
         username = data.get('username').__str__()
         password = data.get('password').__str__()
         search_user = DBsearch(username,password)
-        result = search_user.search_user()
+        result = search_user.check_user()
         login_info = {'username':result[0],'password':result[1]}
+        if_login_username = result[0]
         print result
         print login_info
         return jsonify(login_info)
@@ -45,13 +51,47 @@ def signup_SE():
     
 @app.route('/forget/',methods = ['GET','POST'])
 def forget_SE():
-    return render_template('forget.html')
+    if request.method =="POST":
+        data = request.form
+        username = data.get("username").__str__()
+        email = data.get("email").__str__()
+        cellphone = data.get("cellphone").__str__()
+        print username
+        print email
+        print cellphone
+        if username!=None:
+            search_by_username = DBsearch(username,None)
+            password = search_by_username.search_user()
+            return jsonify({"password":password})
+        else:
+            if email!=None:
+                search_by_email = DBsearch(None,None)
+                info = search_by_email.search_email(email)
+                return jsonify({"username":info[0],"password":info[1]})
+            else:
+                search_by_phone = DBsearch(None,None)
+                info = search_by_phone.search_cellphone(cellphone)
+                return jsonify({"username":info[0],"password":info[1]})
+    else:
+        return render_template('forget.html')
 
 
 @app.route('/search/',methods = ['GET','POST'])
 def search_SE():
-    if request=='POST':
-        print "good"
+    if request.method=='POST':
+        data = request.form
+        query = data.get("query").__str__()
+        if query!= None:
+            new_recent_query = Update(query)
+            new_recent_query.add()
+            info = new_recent_query.forward()
+            res = []
+            for key in info:
+                res.append(key[0])
+                if len(res)==15:
+                    break
+            print res
+            return jsonify({"rank":res})
     else:
         return render_template('search.html')
 

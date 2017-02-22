@@ -4,7 +4,7 @@ var cellphone = $("cellphone")
 var myurl ="http://localhost:5000/forget/"
 var loginurl = "http://localhost:5000/";
 
-function check_password(data){
+function find_password(data){
 	$.ajax({
 		url: myurl,
 		type: 'POST',
@@ -12,6 +12,12 @@ function check_password(data){
 		data: data,
 	})
 	.done(function(result) {
+		if(result.password==null){
+			alert("no information found in database");
+		}
+		else{
+			alert("your password is: "+result.password);
+		}
 		console.log("success");
 	})
 	.fail(function() {
@@ -23,7 +29,7 @@ function check_password(data){
 	
 }
 
-function send_information(data){
+function find_information(data){
 	$.ajax({
 		url: myurl,
 		type: 'POST',
@@ -31,13 +37,14 @@ function send_information(data){
 		data: data,
 	})
 	.done(function(result){
-		if(result.email == true||result.cellphone==true){
-		    console.log("email has been send");
-	    }
+		var username = result.username;
+		var password = result.password;
+		if(username!=null&&password!=null){
+			alert("yor username: "+username+"    your password:"+password);
+		}
 	    else{
-	    	console.log("error! can not be send")
+	    	console.log("server error!");
 	    }
-
 	})
 	.fail(function() {
 		console.log("error");
@@ -50,10 +57,10 @@ function send_information(data){
 $("#username_submit").click(function(event) {
 	/* Act on the event */
 	if(username.val().length==0){
-		console.log("you didn't input anything");
+		alert("please input your username");
 	}
 	else{
-		check_password(username.val());
+		find_password({"username":username.val()});
 	}
 });
 
@@ -63,10 +70,15 @@ $("#userinfo_submit").click(function(event) {
 		"email": email.val(),
 		"cellphone": cellphone.val()
 	}
-	if(data.email.length==0&&data.cellphone.length==0){
-		console.log("must input at least email or cellphone");
+	if(email.val()==null && cellphone.val()==null){
+		alert("must input at least email or cellphone");
 	}
 	else{
-		check_password(username.val());
+		find_information(data);
 	}
+});
+
+$("#go_back_submit").click(function(event) {
+	/* Act on the event */
+	window.location.assign(loginurl);
 });

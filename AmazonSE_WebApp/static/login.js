@@ -12,16 +12,14 @@ $('#login').click(function(event) {
 	username = user.val();
     password = pw.val();
     if(username.length==0){
-    	console.log('username error');
+    	alert('please input username');
     	//window alert "you did not enter username"
-    	clean();
     }
-    if(password.length==0){
-    	console.log('password error');
+    else if(password.length==0){
+    	alert('please input password');
     	//window alert "you did not enter password"
-    	clean();
     }
-    else if(username.length>0&&password.length>0){
+    else{
 	    var userinfo = {
 	    	'username': username,
 	    	'password': password
@@ -64,20 +62,18 @@ function checkuser(correct_username,correct_password){
 	console.log(correct_username);
 	clean();
 	if(correct_username===false&&correct_password===false){
-        console.log("wrong username");
+        alert("invaild username");
         // window one shows: Sorry you are not registered as a user
 
 	}
 	else if(correct_username===true&&correct_password===false){
-        console.log("wrong password");
+        alert("wrong password");
         // window two shows: Sorry your password was wrong
 
 	}
 	else{
-        console.log("successful login");
         window.location.assign(searchurl);
         // jump to search engine
-
 	}
 }
 /*clean the username and password*/

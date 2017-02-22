@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from UserDBsetup import User,base
-from _mysql import NULL
 engine = create_engine('sqlite:///user.db')
 base.metadata.bind = engine
 DBsession = sessionmaker(bind = engine)

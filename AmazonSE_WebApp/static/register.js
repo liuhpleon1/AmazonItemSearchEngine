@@ -8,7 +8,7 @@ var loginurl = "http://localhost:5000/";
 /*check if the password==confrim*/
 function judge(pw,cpw){
     if(pw!=cpw){
-    	console.log("your password are different")
+    	alert("your password are different")
     }
     else{
     	console.log("right password")
@@ -22,11 +22,11 @@ function page_check(){
 	cellphone = $("#cellphone").val();
 	email = $("#email").val();
 	if(username.length==0||password.length==0||confirm.length==0||cellphone.length==0||email.length==0){
-		console.log("your information is not complete");
+		alert("your information is not complete");
 		return null;
 	}
 	else if(password!=confirm){
-		console.log('please input same password');
+		alert('please input same password');
 		return null;
 	}
 	else{
@@ -51,19 +51,19 @@ function clean(){
 /*check if successfully regiestered*/
 function signup_check(has_username,has_email,has_cellphone){
     if(has_username==true){
-        console.log("username exist")
+        alert("username exist")
         clean()
     }
     else if(has_email==true){
-        console.log("email exist")
+        alert("email exist")
         clean()
     }
     else if(has_cellphone==true){
-        console.log("cellphone exist")
+        alert("cellphone exist")
         clean()
     }
     else{
-    	console.log("successfully")
+    	alert("Great!")
     	clean()
     	window.location.assign(loginurl);
     }
@@ -94,12 +94,8 @@ function register(new_user){
 $("#submit").click(function(event) {
 	/* Act on the event */
 	var new_user = page_check();
-	if(new_user==null){
-        clean();
-        console.log("miss information");
-	}
-	else{
-		console.log("vaild input");
+	if(new_user!=null){
+        console.log("vaild input");
 		console.log(new_user);
         register(new_user)
 	}

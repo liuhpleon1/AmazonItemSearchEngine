@@ -3,6 +3,10 @@
 	font-style: normal;
     color: orange;
 }
+.search_title{
+    font-size: 20px;
+    color:black;
+}
 .content_login{
 	font-style: italic;
     color: orange;
@@ -19,7 +23,7 @@
 .content_register{
 	font-style: italic;
     color: orange;
-    height: 385px;
+    height: 430px;
     background-color: white;
     width: 340px;
     text-align: center;
@@ -28,6 +32,28 @@
     padding-bottom: 20px;
     border: 2px solid orange;
     border-radius: 7px;
+}
+.content_forget{
+    font-style: italic;
+    color: orange;
+    height: 338px;
+    background-color: white;
+    width: 340px;
+    text-align: center;
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px solid orange;
+    border-radius: 7px;
+}
+
+.content_search{
+    color:black;
+    width:90%;
+    height:40px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: left
 }
 .img {
 	background-position: 10% 20%;
@@ -93,9 +119,15 @@
 	text-align: left;
     font-size: 15px;
     color: black;
+    padding-left: 3px;
+    padding-right: 3px;
     margin: 0 0 8px 0;
     line-height: inherit;
 }
+.label_search{
+    font-size:20px;
+}
+
 .button{
 	font-style: normal;
 	width: 100%;
@@ -110,6 +142,21 @@
     cursor: pointer;
     background-image: none !important;
     margin-bottom: 4px;
+}
+
+.button_forget{
+    font-style: normal;
+    width: 10%;
+    background-color: orange;
+    color: white;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    cursor: pointer;
+    background-image: none !important;
 }
 
 .button_register1{
@@ -159,7 +206,6 @@
     background-image: none !important;
     margin-bottom: 4px;
 }
-
 .forget{
 	font-size: 13px;
 }
@@ -174,32 +220,4 @@
     padding: 2px;
     border-width: 6px;
     border-color: black;
-}
-.all_content{
-    line-height:30px;
-    background-color:#eeeeee;
-    padding:30px; 
-    margin: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    display:inline-block;
-
-}
-
-.content_cache{
-    left:50px;
-    width:90%;
-    height:30px;
-}
-.content_search{
-    left :50px;
-    width:73%;
-    right:5%;
-    height:1500px;
-}
-.content_choice{
-    width:15%;
-    left:50px;
-    height:1500px;
 }

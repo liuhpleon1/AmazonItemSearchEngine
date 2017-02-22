@@ -10,7 +10,7 @@ class DBsearch:
         self.input_name = input_name
         self.input_password = input_password
         
-    def search_user(self):
+    def check_user(self):
         user = ""
         try:
             user = session.query(User).filter_by(name = self.input_name).one()
@@ -23,3 +23,32 @@ class DBsearch:
             return [True,False]
         else:
             return [True,True]
+    
+    def search_user(self):
+        try:
+            user = session.query(User).filter_by(name = self.input_name).one()
+            password = user.password
+            print user.password
+            return password
+        except:
+            return None;
+        
+    def search_email(self,email):
+        try:
+            user = session.query(User).filter_by(email = email).one()
+            username = user.username
+            password = user.password
+            print user.password
+            return [username,password]
+        except:
+            return None;
+        
+    def search_cellphone(self,cellphone):
+        try:
+            user = session.query(User).filter_by(phone = cellphone).one()
+            username = user.username
+            password = user.password
+            print user.password
+            return [username,password]
+        except:
+            return None;
