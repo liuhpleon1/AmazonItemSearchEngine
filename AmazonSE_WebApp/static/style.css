@@ -221,3 +221,7 @@
     border-width: 6px;
     border-color: black;
 }
+
+.span_search{
+    width:100px;
+}
