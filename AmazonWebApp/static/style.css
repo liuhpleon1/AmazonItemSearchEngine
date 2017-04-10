@@ -1,0 +1,334 @@
+.title{
+	font-size: 34px;
+	font-style: normal;
+    color: orange;
+}
+.search_title{
+    font-size: 20px;
+    color:black;
+}
+.item_title{
+    color: orange;
+}
+.content_login{
+	font-style: italic;
+    color: orange;
+    height: 345px;
+    background-color: white;
+    width: 340px;
+    text-align: center;
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 6px solid white;
+    border-radius: 5px;
+}
+.content_register{
+	font-style: italic;
+    color: orange;
+    height: 430px;
+    background-color: white;
+    width: 340px;
+    text-align: center;
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px solid orange;
+    border-radius: 7px;
+}
+.content_forget{
+    font-style: italic;
+    color: orange;
+    height: 338px;
+    background-color: white;
+    width: 340px;
+    text-align: center;
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px solid orange;
+    border-radius: 7px;
+}
+
+.content_search{
+    border: 0px;
+    color:black;
+    width:90%;
+    height:40px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+}
+.img {
+	background-position: 10% 20%;
+    height: 150px;
+    width:430px;
+}
+.img_register {
+    background-position: 10% 20%;
+    height: 100px;
+    width:350px;
+}
+.img_search{
+    top: 100px;
+    right: 200px;
+    height: 150px;
+    width:430px;
+}
+
+
+.bg{
+	font-style: normal;
+	background-image: url("http://i.huffpost.com/gen/1754789/images/o-AMAZON-DELIVERY-facebook.jpg");
+	background-position: right top;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 1400px,900px;
+}
+
+
+.input{
+	border: 1px solid #D8DDE6;
+    border-radius: 4px;
+    background-color: #fff;
+    font-family: SFS, Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    font-size: 14px;
+    transition: all 0.1s;
+    width:70%;
+    margin-top: 1px;
+    margin-bottom: 16px;
+    padding: 12px;
+}
+
+.input_register{
+    border: 1px solid #D8DDE6;
+    border-radius: 4px;
+    background-color: #fff;
+    font-family: SFS, Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    font-size: 14px;
+    transition: all 0.1s;
+    width:100%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding: 12px;
+}
+
+
+.label {
+	text-align: left;
+    font-size: 15px;
+    color: black;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin: 0 0 8px 0;
+    line-height: inherit;
+}
+.label_search{
+    font-size:20px;
+}
+
+.button{
+	font-style: normal;
+	width: 100%;
+	background-color: orange;
+    color: white;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    cursor: pointer;
+    background-image: none !important;
+    margin-bottom: 4px;
+}
+
+.button_forget{
+    font-style: normal;
+    width: 10%;
+    background-color: orange;
+    color: white;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    cursor: pointer;
+    background-image: none !important;
+}
+
+.button_register1{
+    font-style: normal;
+    width: 40%;
+    background-color: orange;
+    color: white;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    cursor: pointer;
+    background-image: none !important;
+    margin-bottom: 4px;
+}
+
+.button_register{
+    font-style: normal;
+    width: 40%;
+    background-color: orange;
+    color: white;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    cursor: pointer;
+    background-image: none !important;
+    margin-bottom: 4px;
+}
+
+.button_search{
+    font-style: normal;
+    width: 8%;
+    background-color: grey;
+    color: white;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    cursor: pointer;
+    background-image: none !important;
+    margin-bottom: 4px;
+}
+.button_user{
+    background-color: orange;
+}
+.forget{
+	font-size: 13px;
+}
+.newuser{
+    font-size: 18px;
+}
+
+.box{
+    width:100%;
+    height:80%;
+    font-size: 18px;
+    padding: 2px;
+    border-width: 6px;
+    border-color: black;
+}
+
+.item_block{
+    padding-left: 1%;
+    color: black;
+    height: 220px;
+    background-color: white;
+    width: 90%;
+    margin: 4px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    display:inline-block;
+}
+.item_save_block{
+    height: 220px;
+}
+.item_pic {
+    display:inline-block;
+}
+
+.item_pic >img {
+  display: block;
+  max-width:198px;
+  max-height:198px;
+  min-height: 198px;
+  min-width: 198px;
+  width: auto;
+  height: auto;
+  float: left
+}
+
+.item_info{
+    float: right;
+    /* padding-left: 10%; */
+    color: black;
+    height: fixed;
+    background-color: white;
+    width: 80%;
+    text-align: left;
+    margin: 4px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    display: inline-block;
+}
+
+.item_title{
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    word-spacing: normal;
+    letter-spacing: normal;
+    padding: 0;
+    margin: 0;
+    font-size:16px;
+    color: blue;
+}
+
+.item_price{
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    word-spacing: normal;
+    letter-spacing: normal;
+    font-size: 16px;
+    line-height: 16px;
+    color: red;
+}
+
+.item_description{
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    word-spacing: normal;
+    letter-spacing: normal;
+    font-size: 15px;
+    line-height: 15px;
+    color: black;
+}
+.item_button{
+    font-style: normal;
+    float: left;
+    width: 20%;
+    background-color: grey;
+    color: white;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: SFS, Arial, sans-serif;
+    cursor: pointer;
+    background-image: none !important;
+    margin-bottom: 4px; 
+}

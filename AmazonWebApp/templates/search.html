@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>search engine</title>
+		<meta charset="UTF-8">
+		<div id = "checklogin" align="right">
+			
+		</div>
+		<div align="center">
+			<img class="img_search" src="http://brandview.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/amazon_logo.png">
+		</div>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+	</head>
+	<body>
+		<div id = "unloading">
+			<div align = "center">
+				<input type="text" name="content" class = "input" id="search_text" >
+				<input type="submit" name="search" class = "button_search" id = "search_submit" value="Search">
+			</div>
+			<div align = "center">
+				<br>
+				<div>
+					category(optional):
+					<select name="select" id = "select_category">
+					    <option value="None">All</option>
+						<option value="MovieTV">MovieTV</option>
+						<option value="Electronics">Electronics</option>
+						<option value="Mobile">Mobile</option>
+					</select>
+				</div>
+				<br>
+				<div>
+					price range(optional)
+					$<input type="number" id="start" placeholder="start price"> -
+					$<input type="number" id="end" placeholder="end price">
+				</div>
+			</div>
+		</span>
+		<div align="center">
+			<div class = 'content_search content_forget'>
+				<span class="label_search label">people often search:</span>
+				<span class="label_search label" id='cache'> </span>
+			</div>
+			<!--
+				<div class = 'content_login' id='output'>
+											
+				</div&nbsp
+				<div class='' id='next'>
+											<div type='submit' id='pre' name='Next' class='button_seach button_next' value="Next"></div>
+												<div type='submit' id='next' name='Next' class='button_seach button_next' value="Next"></div>
+					</div>
+		</div>
+		-->
+		<div align="left">
+			<ul id = "item_content" class = "item_content">
+				
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="loading" align="center">
+	<img src = "http://www.owlhatworld.com/wp-content/uploads/2015/12/57.gif">
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='search.js')}}"></script>
+</body>
+</html>
